@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  loadbalncer:
+    container_name: loadbalncer
+    image: ubunt_python
+    hostname: loadblancer
+    ports:
+      - "88:80"
+    tty: true
+    networks: 
+      app_net:
+        ipv4_address: 172.24.30.11
+
+  controller01:
+    container_name: controller01
+    image: ubunt_python
+    hostname: controller01
+    tty: true
+    networks: 
+      app_net:
+        ipv4_address: 172.24.30.12
+
+  controller02:
+    container_name: controller02
+    image: ubunt_python
+    hostname: controller02
+    tty: true
+    networks: 
+      app_net:
+        ipv4_address: 172.24.30.13
+  database:
+    container_name: database
+    image: ubunt_python
+    hostname: database
+    tty: true
+    networks: 
+      app_net:
+        ipv4_address: 172.24.30.14
+
+networks: 
+  app_net:
+    ipam:
+      config:
+        - subnet: 172.24.30.0/24
+              

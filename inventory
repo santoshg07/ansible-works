@@ -1,0 +1,17 @@
+[lbr]
+loadbalncer
+[lbr:vars]
+ansible_connection=docker
+
+
+[db]
+database
+[db:vars]
+ansible_connection=docker
+
+[webserver]
+controller01
+controller02
+[webserver:vars]
+ansible_connection=docker
+
